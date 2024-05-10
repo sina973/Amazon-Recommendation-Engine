@@ -42,10 +42,16 @@ You can find the implementation in the [Dataset.py](Dataset.py) file.
 There are many methods in the [Dataset.py](Dataset.py) file to visualize the data. You can visualize the data types with "visualize_data_types" method. Also, you can visualize ratings per user, ratings per product, and overall ratings and get the plot of the most popular products in the dataset via the appropriate methods in [Dataset.py](Dataset.py).
 
 # Run the code
-In the very first step, you should run the [main.py](main.py) file to retrieve the datasets and save the models. In this file, the dataset will be downloaded and preprocessed, and the models will be initialized, trained, and saved. You can perform the prediction with both of the engine by running the main. It is advised to run the models and save the .pkl files to use them in the API.
+In the very first step, you should run the [main.py](main.py) file to retrieve the datasets and save the models. In this file, the dataset will be downloaded and preprocessed, and the models will be initialized, trained, and saved. You can perform the prediction with both of the engines by running the main. It is advised to run the models and save the .pkl files to use them in the API.
 
 # API
-I implemented REST API using the FastAPI library in Python. In the API, first, the meta dataset will be created and saved in the backend because it is needed to perform item-item recommendations. Then, the models will be loaded, and the requests from and to the server are handled in `async def recommend(item: ScoringItem)` method. You can initialize FastAPI and run the model on localhost in the Postman application.
+I implemented REST API using the FastAPI library in Python. In the API, first, the meta dataset will be created and saved in the backend because it is needed to perform item-item recommendations. Then, the models will be loaded, and the requests from and to the server are handled in `async def recommend(item: ScoringItem)` method. You can initialize FastAPI and run the model on localhost in the Postman application. Below is a picture of a request for a prediction on postman. The request was to return 10 recommendations for the "B00063WE3W" product from each ML model. You can find the recommendations in the box at the bottom of the picture.
+
+<img>
+
+#Scalability and Performance
+To ensure the performance and scalability of the model, I decided to have the dataset in the backend. To perform a recommendation prediction of content based filtering, you should have access to all the data to compute the similarities. However, I decided to have the dataset saved in the backend to prevent passing the dataset over the server repeatedly. I also used only 200,000 data points for meta data and 500,000 data points for the review dataset to perform predictions with more speed. However, these numbers can be changed in the dataset and the model with `create_meta_dataset` and `create_review_dataset` functions.
+
 
 
 
