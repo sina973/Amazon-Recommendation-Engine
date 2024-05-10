@@ -1,4 +1,4 @@
-# Amazon-Recommendation-Engine
+# Amazon-Product-Recommendation-Engine
 Two Amazon recommendation engines with API implementation
 
 In this repository, I implemented two recommendation engines that work on Amazon Electronics and Clothing datasets.
