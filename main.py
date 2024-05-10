@@ -21,7 +21,7 @@ def load_model(model_name):
 if __name__ == '__main__':
 
     meta_data = Dataset.Dataset()
-    meta_data.create_meta_dataset(download=False)
+    meta_data.create_meta_dataset(download=True)
 
     contentModel = Content_Model.ContentModel()
     contentModel.fit(meta_data.dataset)
@@ -31,7 +31,7 @@ if __name__ == '__main__':
     contentModel.predict(dataset=meta_data.dataset, product_number="B00063W3EW", num_results=5)
 
     review_data = Dataset.Dataset()
-    review_data.create_review_dataset(download=False)
+    review_data.create_review_dataset(download=True)
 
     collabModel = Collaborative_Model.CollaborativeModel()
     collabModel.fit(review_data)
