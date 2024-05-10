@@ -14,7 +14,7 @@ Collaborative filtering, or Item-Item recommendation, is based on the idea that 
 
 
 # Dataset
-In this project, I used Amazon Electronics and Clothing datasets released in 2018. You can find the dataset via the link [Amazon Dataset](https://cseweb.ucsd.edu/~jmcauley/datasets/amazon_v2/#files). < br / >
+In this project, I used Amazon Electronics and Clothing datasets released in 2018. You can find the dataset via the link [Amazon Dataset](https://cseweb.ucsd.edu/~jmcauley/datasets/amazon_v2/#files).
 
 ## Pre-processing of the data
 
