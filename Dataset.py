@@ -92,7 +92,7 @@ class Dataset(pd.DataFrame):
 
             return self.dataset
 
-    def create_review_dataset(self, download=True):
+    def create_review_dataset(self, download=True, num_datapoints=250000):
 
         url1 = "https://datarepo.eng.ucsd.edu/mcauley_group/data/amazon_v2/categoryFiles/Electronics.json.gz"
         file_name1 = "Electronics.json.gz"
@@ -102,11 +102,11 @@ class Dataset(pd.DataFrame):
         file_name2 = "Clothing_Shoes_and_Jewelry.json.gz"
 
         if download:
-            df1 = self.create_dataset(download=True, url=url1, file_name=file_name1, num_datapoints=250000)
-            df2 = self.create_dataset(download=True, url=url2, file_name=file_name2, num_datapoints=250000)
+            df1 = self.create_dataset(download=True, url=url1, file_name=file_name1, num_datapoints=num_datapoints)
+            df2 = self.create_dataset(download=True, url=url2, file_name=file_name2, num_datapoints=num_datapoints)
         else:
-            df1 = self.create_dataset(download=False, url=None, file_name=file_name1, num_datapoints=250000)
-            df2 = self.create_dataset(download=False, url=None, file_name=file_name2, num_datapoints=250000)
+            df1 = self.create_dataset(download=False, url=None, file_name=file_name1, num_datapoints=num_datapoints)
+            df2 = self.create_dataset(download=False, url=None, file_name=file_name2, num_datapoints=num_datapoints)
 
         self.dataset = merge_datasets(df1, df2)
 
@@ -114,7 +114,7 @@ class Dataset(pd.DataFrame):
 
         return self.dataset
 
-    def create_meta_dataset(self, download=True):
+    def create_meta_dataset(self, download=True, num_datapoints=100000):
 
         meta_url1 = "https://datarepo.eng.ucsd.edu/mcauley_group/data/amazon_v2/metaFiles2/meta_Electronics.json.gz"
         file_name1 = "meta_Electronics.jsonl.gz"
@@ -123,11 +123,11 @@ class Dataset(pd.DataFrame):
         file_name2 = "meta_Clothing_Shoes_and_Jewelry.jsonl.gz"
 
         if download:
-            df1 = self.create_dataset(download=True, url=meta_url1, file_name=file_name1)
-            df2 = self.create_dataset(download=True, url=meta_url2, file_name=file_name2)
+            df1 = self.create_dataset(download=True, url=meta_url1, file_name=file_name1, num_datapoints=num_datapoints)
+            df2 = self.create_dataset(download=True, url=meta_url2, file_name=file_name2, num_datapoints=num_datapoints)
         else:
-            df1 = self.create_dataset(download=False, url=None, file_name=file_name1)
-            df2 = self.create_dataset(download=False, url=None, file_name=file_name2)
+            df1 = self.create_dataset(download=False, url=None, file_name=file_name1, num_datapoints=num_datapoints)
+            df2 = self.create_dataset(download=False, url=None, file_name=file_name2, num_datapoints=num_datapoints)
 
         self.dataset = merge_datasets(df1, df2)
         # self.dataset = pd.concat([df1, df2])
